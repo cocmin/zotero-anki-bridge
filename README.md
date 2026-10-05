@@ -4,7 +4,7 @@
 
 这是独立桥接插件。翻译功能由 [Translate for Zotero](https://github.com/windingwind/zotero-pdf-translate) 提供，Anki 写入由 [AnkiConnect](https://github.com/FooSoft/anki-connect) 提供。项目思路来自 [原掘金教程](https://juejin.cn/post/7592497088790315035) 和 [Zotero ODH](https://github.com/1ywan/zotero-odh) 的划词学习流程。感谢这些项目的作者和贡献者；本仓库不是它们的官方版本或 fork。完整来源与许可见 [致谢](ACKNOWLEDGEMENTS.md) 和 [第三方说明](THIRD_PARTY_NOTICES.md)。
 
-**当前版本：0.1.1，实验性。目标版本为 Zotero 10.0.x。** 自动测试与归档检查已执行，真实 Zotero 安装、按钮显示及 Anki 保存尚待验收，见 [验证记录](docs/VERIFICATION.md)。
+**当前版本：0.1.1，实验性。目标版本为 Zotero 10.0.x。** 首轮 GitHub 测试与构建已通过，维护者已确认插件在自己的使用环境中可用。确认范围与仍待专项验证的场景见 [验证记录](docs/VERIFICATION.md)。
 
 ## 功能
 
@@ -55,7 +55,7 @@ python build.py --output dist-check
 python verify_package.py --dist dist --compare dist-check
 ```
 
-[GitHub Actions](.github/workflows/ci.yml) 配置为运行测试、打包和归档检查，完成后上传构建产物；它不会自动发布 Release。首次上传后仍需查看 Actions 的实际运行结果。
+[GitHub Actions](.github/workflows/ci.yml) 配置为运行测试、打包和归档检查，完成后上传构建产物；它不会自动发布 Release。[首轮运行已成功](https://github.com/cocmin/zotero-anki-bridge/actions/runs/37321673650)。后续修改仍需查看对应构建的实际结果。
 
 ```text
 addon/                 插件入口、配置与运行代码
