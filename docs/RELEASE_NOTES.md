@@ -1,13 +1,28 @@
-# v0.1.1 发布说明
+# v0.1.1 · Zotero 划词加入 Anki
 
-实验版本：Zotero PDF 阅读器划词加入 Anki，背面使用 Translate for Zotero 当前服务的结果。
+已由维护者确认实际可用，GitHub 测试、构建及归档检查通过。
 
-包含插件入口与代码、MIT 许可证和来源 NOTICE。依赖 Translate for Zotero 与 AnkiConnect，需分别安装。
+## 功能
 
-本版修正 manifest 中缺少 update_url 导致的安装拒绝，增加安装器字段检查回归测试。[首轮 GitHub 测试与构建已成功](https://github.com/cocmin/zotero-anki-bridge/actions/runs/37321673650)，维护者已确认插件在自己的使用环境中可用。其他环境以及重复检测、断线重试等专项场景尚未逐项确认。首次发布建议标记为 Pre-release。
+- 在 Zotero PDF 阅读器中划词，点击“＋ 加入 Anki”保存笔记。
+- 正面保存所选单词或短语，背面保存 Translate for Zotero 当前服务的译文，包括 DeepSeek。
+- 支持匹配译文复用、重复检查、错误提示和重试。
+- 默认牌组为“文献单词”，笔记类型为“问答题”，字段为“正面”和“背面”，可在设置中修改。
 
-致谢 windingwind 与 Translate for Zotero 贡献者、1ywan 与 ODH 贡献者、Alex Yatskov（FooSoft）与 AnkiConnect 贡献者、Zotero/Mozilla 贡献者以及 [原教程作者](https://juejin.cn/post/7592497088790315035)。这是独立桥接插件，不是上述项目的官方版本。
+## 安装
 
-后续通过手动安装新版更新。当前 .invalid 更新地址是必填占位，不提供在线更新。
+先安装并启用 Translate for Zotero 和 AnkiConnect，保持 Anki 打开。下载附件中的 `zotero-anki-bridge-v0.1.1.xpi`，在 Zotero“工具 → 插件 → 齿轮 → 从文件安装插件”中安装。
 
-发布附件应由当前仓库构建生成：XPI、源码 ZIP、SHA256SUMS.txt。
+0.1.1 修正了缺少 update_url 导致的安装拒绝。后续通过手动安装新版更新；当前未提供在线更新服务器。
+
+## 附件
+
+- `zotero-anki-bridge-v0.1.1.xpi`：插件安装包。
+- `zotero-anki-bridge-source-v0.1.1.zip`：完整源码、文档、构建脚本和许可证。
+- `SHA256SUMS.txt`：上述两个归档的校验和。
+
+## 致谢与许可
+
+感谢 windingwind 与 Translate for Zotero 贡献者、1ywan 与 ODH 贡献者、Alex Yatskov（FooSoft）与 AnkiConnect 贡献者、Zotero/Mozilla 贡献者及 [原教程作者](https://juejin.cn/post/7592497088790315035)。这是独立桥接项目。
+
+自有代码采用 MIT，测试中的安装器片段保留 MPL-2.0 及原始来源。源码包保留完整致谢与第三方说明。

@@ -4,7 +4,7 @@
 
 这是独立桥接插件。翻译功能由 [Translate for Zotero](https://github.com/windingwind/zotero-pdf-translate) 提供，Anki 写入由 [AnkiConnect](https://github.com/FooSoft/anki-connect) 提供。项目思路来自 [原掘金教程](https://juejin.cn/post/7592497088790315035) 和 [Zotero ODH](https://github.com/1ywan/zotero-odh) 的划词学习流程。感谢这些项目的作者和贡献者；本仓库不是它们的官方版本或 fork。完整来源与许可见 [致谢](ACKNOWLEDGEMENTS.md) 和 [第三方说明](THIRD_PARTY_NOTICES.md)。
 
-**当前版本：0.1.1，实验性。目标版本为 Zotero 10.0.x。** 首轮 GitHub 测试与构建已通过，维护者已确认插件在自己的使用环境中可用。确认范围与仍待专项验证的场景见 [验证记录](docs/VERIFICATION.md)。
+**当前版本：0.1.1，已由维护者确认实际可用。目标版本为 Zotero 10.0.x。** GitHub 测试、构建和归档检查已通过，见 [验证记录](docs/VERIFICATION.md)。
 
 ## 功能
 
@@ -19,7 +19,7 @@
 
 1. 安装并启用 [Translate for Zotero](https://github.com/windingwind/zotero-pdf-translate)，配置所需服务。
 2. 在 Anki 中安装并启用 [AnkiConnect](https://ankiweb.net/shared/info/2055492159)，保持 Anki 打开。
-3. 如果仓库维护者已发布版本，从本仓库 **Releases** 下载 `zotero-anki-bridge-v0.1.1.xpi`；也可以按下面的步骤自行构建。
+3. 从本仓库 [Releases](https://github.com/cocmin/zotero-anki-bridge/releases/latest) 下载 `zotero-anki-bridge-v0.1.1.xpi`；也可以按下面的步骤自行构建。
 4. Zotero 中打开 **工具 → 插件 → 齿轮 → 从文件安装插件**，选择 XPI；安装后重新划词，必要时重启 Zotero。
 5. 在 PDF 中选择文本并点击 **＋ 加入 Anki**。第一次添加后，在 Anki“浏览”中核对正反面内容。
 
@@ -55,7 +55,7 @@ python build.py --output dist-check
 python verify_package.py --dist dist --compare dist-check
 ```
 
-[GitHub Actions](.github/workflows/ci.yml) 配置为运行测试、打包和归档检查，完成后上传构建产物；它不会自动发布 Release。[首轮运行已成功](https://github.com/cocmin/zotero-anki-bridge/actions/runs/37321673650)。后续修改仍需查看对应构建的实际结果。
+[GitHub Actions](.github/workflows/ci.yml) 运行测试、打包和归档检查。[已有运行已成功](https://github.com/cocmin/zotero-anki-bridge/actions/runs/37322558946)。在 `main` 上提交带 `[release]` 标记的提交时，检查通过后会发布包含 XPI、完整源码 ZIP 和校验和的 Release，详见 [发布指南](docs/PUBLISHING.md)。普通提交仅执行验证，不发布版本。
 
 ```text
 addon/                 插件入口、配置与运行代码

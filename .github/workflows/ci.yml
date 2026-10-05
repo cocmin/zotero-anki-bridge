@@ -32,3 +32,40 @@ jobs:
           name: zotero-anki-bridge
           path: dist/
           if-no-files-found: error
+  publish:
+    needs: verify
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main' && contains(github.event.head_commit.message, '[release]')
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Build release assets
+        run: |
+          python build.py
+          python verify_package.py --dist dist
+      - name: Publish complete release
+        env:
+          GH_TOKEN: ${{ github.token }}
+          GH_REPO: ${{ github.repository }}
+          RELEASE_SHA: ${{ github.sha }}
+        run: |
+          set -euo pipefail
+          version="$(python -c 'import json; print(json.load(open("addon/manifest.json"))["version"])')"
+          tag="v$version"
+          if gh release view "$tag" --repo "$GH_REPO" >/dev/null 2>&1; then
+            echo "Release $tag already exists; leaving it unchanged."
+            exit 0
+          fi
+          gh release create "$tag" \
+            "dist/zotero-anki-bridge-v$version.xpi" \
+            "dist/zotero-anki-bridge-source-v$version.zip" \
+            dist/SHA256SUMS.txt \
+            --repo "$GH_REPO" --target "$RELEASE_SHA" \
+            --title "$tag · Zotero 划词加入 Anki" \
+            --notes-file docs/RELEASE_NOTES.md --latest
