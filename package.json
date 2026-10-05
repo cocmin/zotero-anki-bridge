@@ -1,0 +1,8 @@
+{
+  "name": "zotero-anki-bridge",
+  "version": "0.1.1",
+  "private": true,
+  "description": "Zotero 10 selection to Anki bridge using Translate for Zotero",
+  "license": "(MIT AND MPL-2.0)",
+  "scripts": {"test": "node --test"}
+}

@@ -1,0 +1,14 @@
+{
+  "manifest_version": 2,
+  "name": "划词 Anki 桥接",
+  "version": "0.1.1",
+  "description": "在 Zotero 阅读器中，将所选单词和 Translate for Zotero 翻译加入 Anki。",
+  "applications": {
+    "zotero": {
+      "id": "zotero-anki-bridge@local",
+      "update_url": "https://zotero-anki-bridge.invalid/updates.json",
+      "strict_min_version": "10.0",
+      "strict_max_version": "10.0.*"
+    }
+  }
+}

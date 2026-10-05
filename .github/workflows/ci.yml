@@ -1,0 +1,34 @@
+name: Test and build
+on:
+  push:
+  pull_request:
+  workflow_dispatch:
+permissions:
+  contents: read
+jobs:
+  verify:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22'
+          package-manager-cache: false
+      - uses: actions/setup-python@v7
+        with:
+          python-version: '3.12'
+      - name: Behavior tests
+        run: node --test
+      - name: Build twice
+        run: |
+          python build.py
+          python build.py --output dist-check
+      - name: Verify archives
+        run: python verify_package.py --dist dist --compare dist-check
+      - uses: actions/upload-artifact@v7
+        with:
+          name: zotero-anki-bridge
+          path: dist/
+          if-no-files-found: error

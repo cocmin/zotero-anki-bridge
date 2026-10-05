@@ -1,0 +1,14 @@
+Zotero Anki Bridge
+Original bridge implementation: MIT, see LICENSE.
+
+Thanks to windingwind and Translate for Zotero contributors;
+1ywan and Zotero ODH contributors; Alex Yatskov (FooSoft) and
+AnkiConnect contributors; Zotero and Mozilla contributors; and
+the author of https://juejin.cn/post/7592497088790315035.
+
+This is an independent integration, not an official version of
+those projects. External plugins are installed separately.
+
+The source repository includes an MPL-2.0 installer-check excerpt
+at tests/fixtures/zotero10-required-manifest.js. It is not included
+in the XPI. See THIRD_PARTY_NOTICES.md and LICENSES/MPL-2.0.txt.

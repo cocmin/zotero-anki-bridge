@@ -1,0 +1,12 @@
+/dist/
+/dist-check/
+/node_modules/
+__pycache__/
+*.py[cod]
+.env
+.env.*
+*.log
+*.sqlite
+*.sqlite-*
+.DS_Store
+Thumbs.db
